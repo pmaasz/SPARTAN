@@ -8,7 +8,7 @@
 
 require_once 'Singleton.php';
 
-class Session
+class AlertMessages
 {
     use Singleton;
 
