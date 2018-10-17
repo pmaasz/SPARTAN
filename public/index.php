@@ -8,10 +8,10 @@
 
 session_start();
 
-require_once __DIR__ .'/Services/HTTP/Request.php';
-require_once __DIR__ .'/Services/HTTP/Response.php';
-require_once __DIR__ .'/Services/HTTP/ResponseRedirect.php';
-require_once __DIR__ .'/Services/HTTP/ResponseInterface.php';
+require_once __DIR__ . '/../Services/HTTP/Request.php';
+require_once __DIR__ . '/../Services/HTTP/Response.php';
+require_once __DIR__ . '/../Services/HTTP/ResponseRedirect.php';
+require_once __DIR__ . '/../Services/HTTP/ResponseInterface.php';
 
 $controllerName = "";
 $actionName = "";

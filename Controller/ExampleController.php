@@ -6,6 +6,10 @@
  * Time: 20:14
  */
 
+require_once __DIR__ . '/../Services/Database.php';
+require_once __DIR__ . '/../Services/Templating.php';
+require_once __DIR__ . '/../Services/AlertMessages.php';
+
 class ExampleController
 {
     public function __construct()
