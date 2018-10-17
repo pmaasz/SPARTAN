@@ -1,9 +1,9 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: pmaass
- * Date: 09.02.2018
- * Time: 15:48
+ * User: Philipnormal
+ * Date: 17.10.18
+ * Time: 20:15
  */
 
 require_once 'Singleton.php';

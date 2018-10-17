@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: Philipnormal
- * Date: 15.10.18
- * Time: 21:44
+ * Date: 17.10.18
+ * Time: 20:15
  */
 
 trait Singleton

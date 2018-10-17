@@ -1,4 +1,11 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Philipnormal
+ * Date: 17.10.18
+ * Time: 20:15
+ */
+
 session_start();
 
 require_once __DIR__ .'/Services/HTTP/Request.php';

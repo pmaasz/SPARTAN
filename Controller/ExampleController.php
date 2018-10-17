@@ -30,6 +30,6 @@ class ExampleController
 
     public function deleteAction()
     {
-        
+
     }
 }
