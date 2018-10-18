@@ -56,8 +56,7 @@ class ExampleRepository
      */
     public function update(array $parameters, $id)
     {
-        return Database::getInstance()->insert(
-            "UPDATE table SET parameter = :parameter WHERE id = :id", [
+        return Database::getInstance()->insert("UPDATE table SET parameter = :parameter WHERE id = :id", [
                 'parameter' => $parameters['parameter'],
                 'id' => $id,
             ]
