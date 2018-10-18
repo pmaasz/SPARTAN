@@ -51,7 +51,8 @@ class Request
     /**
      * @return bool
      */
-    public function isPostRequest(){
+    public function isPostRequest()
+    {
         return !$this->post->isEmpty();
     }
 }

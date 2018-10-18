@@ -7,7 +7,6 @@
  */
 
 require_once __DIR__ . '/../Services/Templating.php';
-require_once __DIR__ . '/../Services/AlertMessages.php';
 require_once __DIR__ . '/../Repository/ExampleRepository.php';
 
 class ExampleController
@@ -79,8 +78,17 @@ class ExampleController
         ]));
     }
 
+    /**
+     * @param Request $request
+     *
+     * @return ResponseRedirect
+     */
     public function deleteAction(Request $request)
     {
+        $id = $request->getGet()->get('id');
 
+        $this->exampleRepository->delete($id);
+
+        return new ResponseRedirect('index.php');
     }
 }
