@@ -13,9 +13,9 @@ class Example
      */
     private $attribute;
 
-    public function __construct()
+    public function __construct($attribute)
     {
-
+        $this->attribute = $attribute;
     }
 
     public function setAttribute($attribute)

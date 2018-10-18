@@ -9,12 +9,18 @@
 require_once __DIR__ . '/../Services/Database.php';
 require_once __DIR__ . '/../Services/Templating.php';
 require_once __DIR__ . '/../Services/AlertMessages.php';
+require_once __DIR__ . '/../Repository/ExampleRepository.php';
 
 class ExampleController
 {
+    /**
+     * @var ExampleRepository
+     */
+    private $exampleRepository;
+
     public function __construct()
     {
-
+        $this->exampleRepository = new ExampleRepository();
     }
 
     public function indexAction()
@@ -22,17 +28,17 @@ class ExampleController
 
     }
 
-    public function createAction()
+    public function createAction(Request $request)
     {
 
     }
 
-    public function updateAction()
+    public function updateAction(Request $request)
     {
 
     }
 
-    public function deleteAction()
+    public function deleteAction(Request $request)
     {
 
     }
