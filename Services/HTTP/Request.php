@@ -13,7 +13,7 @@ class Request
     /**
      * @var ParameterBag
      */
-    protected $query;
+    protected $get;
 
     /**
      * @var ParameterBag
@@ -35,7 +35,7 @@ class Request
     /**
      * @return ParameterBag
      */
-    public function getQuery()
+    public function getGet()
     {
         return $this->query;
     }

@@ -21,7 +21,7 @@ class ExampleRepository
     }
 
     /**
-     * @param $id
+     * @param int $id
      *
      * @return mixed
      */
@@ -36,35 +36,37 @@ class ExampleRepository
     }
 
     /**
-     * @param $parameter
+     * @param array $parameters
      *
      * @return mixed
      */
-    public function insert($parameter)
+    public function insert(array $parameters)
     {
         return Database::getInstance()->insert("INSERT INTO table SET parameter = :parameter", [
-                'parameter' => $parameter,
+                'parameter' => $parameters['parameter'],
             ]
         );
     }
 
     /**
-     * @param $parameter
+     * @param array $parameters
+     * @param int $id
      *
      * @return mixed
      */
-    public function update($parameter)
+    public function update(array $parameters, $id)
     {
         return Database::getInstance()->insert(
-            "UPDATE table SET parameter = :parameter", [
-                'parameter' => $parameter,
+            "UPDATE table SET parameter = :parameter WHERE id = :id", [
+                'parameter' => $parameters['parameter'],
+                'id' => $id,
             ]
         );
 
     }
 
     /**
-     * @param $id
+     * @param int $id
      *
      * @return mixed
      */

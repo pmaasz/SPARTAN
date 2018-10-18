@@ -46,7 +46,9 @@ class ExampleController
     {
         if ($request->isPostRequest())
         {
-            $this->exampleRepository->insert($request->getPost('parameter'));
+            $parameters[] = $request->getPost()->get('parameter');
+
+            $this->exampleRepository->insert($parameters);
 
             return new ResponseRedirect('index.php');
         }
@@ -54,9 +56,27 @@ class ExampleController
         return new Response(Templating::getInstance()->render('form.php'));
     }
 
+    /**
+     * @param Request $request
+     *
+     * @return Response|ResponseRedirect
+     */
     public function updateAction(Request $request)
     {
+        $id = $request->getGet()->get('id');
+        $parameters[] = $request->getPost()->get('parameter');
+        $result = $this->exampleRepository->findById($id);
 
+        if ($request->isPostRequest())
+        {
+            $this->exampleRepository->update($parameters, $id);
+
+            return new ResponseRedirect('index.php');
+        }
+
+        return new Response(Templating::getInstance()->render('form.php', [
+            'result' => $result,
+        ]));
     }
 
     public function deleteAction(Request $request)
