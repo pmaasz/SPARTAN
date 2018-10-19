@@ -6,6 +6,11 @@
  * Time: 20:15
  */
 
+/**
+ * The Database object exists to build a connection to our our database and to insert and query data to, form and in our
+ * database.
+ */
+
 require_once 'Singleton.php';
 
 class Database
