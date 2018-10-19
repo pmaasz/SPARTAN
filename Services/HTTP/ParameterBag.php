@@ -6,6 +6,12 @@
  * Time: 20:15
  */
 
+/**
+ * Class ParameterBag
+ *
+ * The ParameterBag holds all paramters of our $_GET and $_POST request variables in form of an array.
+ */
+
 class ParameterBag
 {
     /**
@@ -27,6 +33,7 @@ class ParameterBag
      * @param string $key
      *
      * @return mixed
+     *
      * @throws \UnexpectedValueException
      */
     public function get($key)

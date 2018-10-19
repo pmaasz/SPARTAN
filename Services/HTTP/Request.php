@@ -6,6 +6,11 @@
  * Time: 20:15
  */
 
+/**
+ * The Request Object holds everything our client sends to the server via request. We use this class to save the $_GET
+ * and $_POST into our ParameterBag by creating new instances of that class for each parameter.
+ */
+
 require_once __DIR__.'/ParameterBag.php';
 
 class Request
