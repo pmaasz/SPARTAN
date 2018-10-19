@@ -9,7 +9,7 @@
 /**
  * Class ParameterBag
  *
- * The ParameterBag holds all paramters of our $_GET and $_POST request variables in form of an array.
+ * The ParameterBag holds all of our $_GET or $_POST request parameters in form of an array.
  */
 
 class ParameterBag
