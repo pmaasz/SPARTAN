@@ -6,6 +6,14 @@
  * Time: 20:15
  */
 
+/**
+ * Class ResponseRedirect
+ *
+ * The ResponseRedirect does the same as the Response object. The difference is the location the user is directed to.
+ * Instead of loading the same page again we can redirect to a new page. Example would be the saving of a form and
+ * redirecting to the page where the saved data is shown.
+ */
+
 class ResponseRedirect implements ResponseInterface
 {
     /**
