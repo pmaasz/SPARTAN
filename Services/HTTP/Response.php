@@ -8,7 +8,7 @@
 
 /**
  * The response object is a response send from the server to the client. We send all our content as a big string back to
- * the browser for it to interpretate into the page the user can see.
+ * the browser for it to interpret into the page the user can see.
  */
 
 require_once __DIR__ . '/ResponseInterface.php';

@@ -7,7 +7,8 @@
  */
 
 /**
- *
+ *The Templating class marries our data with our template to convert it into a big string for the browser to interpret
+ * and generate the view for the user.
  */
 
 require_once 'Singleton.php';
