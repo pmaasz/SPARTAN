@@ -6,8 +6,15 @@
  * Time: 20:14
  */
 
+/**
+ * This is a Controller class. A Controller manages the data input and output by telling a Repository what to to with
+ * new data and what data to give to channel to a Template for a user to view or manipulate.
+ */
+
+
 require_once __DIR__ . '/../Services/Templating.php';
 require_once __DIR__ . '/../Repository/ExampleRepository.php';
+require_once __DIR__ . '/../Entity/Example.php';
 
 class ExampleController
 {
@@ -45,9 +52,9 @@ class ExampleController
     {
         if ($request->isPostRequest())
         {
-            $parameters[] = $request->getPost()->get('parameter');
+            $example = new Example($request->getPost()->get('attribute'));
 
-            $this->exampleRepository->insert($parameters);
+            $this->exampleRepository->insert($example);
 
             return new ResponseRedirect('index.php');
         }

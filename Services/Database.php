@@ -52,6 +52,7 @@ class Database
     /**
      * @param $query
      * @param array $parameters
+     *
      * @return array
      */
     public function query($query, array $parameters = array())

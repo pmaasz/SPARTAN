@@ -36,14 +36,14 @@ class ExampleRepository
     }
 
     /**
-     * @param array $parameters
+     * @param Example $example
      *
      * @return mixed
      */
-    public function insert(array $parameters)
+    public function insert(Example $example)
     {
         return Database::getInstance()->insert("INSERT INTO table SET parameter = :parameter", [
-                'parameter' => $parameters['parameter'],
+                'parameter' => $example->getAttribute(),
             ]
         );
     }
