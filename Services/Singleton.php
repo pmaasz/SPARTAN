@@ -33,7 +33,7 @@ trait Singleton
     }
 
     /**
-     * @return mixed 
+     * @return mixed
      */
     public static function getInstance()
     {

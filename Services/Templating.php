@@ -12,6 +12,12 @@ class Templating
 {
     use Singleton;
 
+    /**
+     * @param $template
+     * @param array $parameters
+     * 
+     * @return string
+     */
     public function render($template, array $parameters = array())
     {
         ob_start();
