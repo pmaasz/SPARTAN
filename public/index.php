@@ -6,6 +6,11 @@
  * Time: 20:15
  */
 
+/**
+ * The index.php is the beginning and the end of our application. An incoming request of the client is handled here and
+ * routed to the correct classes and functions. Also the response given by the server to the client is send from here.
+ */
+
 session_start();
 
 require_once __DIR__ . '/../Services/HTTP/Request.php';
