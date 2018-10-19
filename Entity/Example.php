@@ -13,16 +13,27 @@ class Example
      */
     private $attribute;
 
+    /**
+     * Example constructor.
+     *
+     * @param $attribute
+     */
     public function __construct($attribute)
     {
         $this->attribute = $attribute;
     }
 
+    /**
+     * @param $attribute
+     */
     public function setAttribute($attribute)
     {
         $this->attribute = $attribute;
     }
 
+    /**
+     * @return mixed
+     */
     public function getAttribute()
     {
         return $this->attribute;

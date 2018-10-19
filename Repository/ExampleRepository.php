@@ -76,4 +76,14 @@ class ExampleRepository
             ]
        );
     }
+
+    public function arrayToObject()
+    {
+
+    }
+
+    public function ObjectToArray()
+    {
+
+    }
 }
