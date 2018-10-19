@@ -6,6 +6,11 @@
  * Time: 20:15
  */
 
+/**
+ * The response object is a response send from the server to the client. We send all our content as a big string back to
+ * the browser for it to interpretate into the page the user can see.
+ */
+
 require_once __DIR__ . '/ResponseInterface.php';
 
 class Response implements ResponseInterface
@@ -17,6 +22,7 @@ class Response implements ResponseInterface
 
     /**
      * Response constructor.
+     *
      * @param $content
      */
     public function __construct($content)

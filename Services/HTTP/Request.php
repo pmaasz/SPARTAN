@@ -11,7 +11,7 @@
  * and $_POST into our ParameterBag by creating new instances of that class for each parameter.
  */
 
-require_once __DIR__.'/ParameterBag.php';
+require_once __DIR__ . '/ParameterBag.php';
 
 class Request
 {
