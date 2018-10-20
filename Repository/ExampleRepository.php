@@ -31,7 +31,6 @@ class ExampleRepository
         return $this->insert($example);
     }
 
-
     /**
      * @return mixed
      */
@@ -85,14 +84,14 @@ class ExampleRepository
     }
 
     /**
-     * @param int $id
+     * @param Example $example
      *
      * @return mixed
      */
-    public function delete($id)
+    public function delete(Example $example)
     {
        return Database::getInstance()->query('DELETE FROM table WHERE id = :id', [
-                'id' => $id,
+                'id' => $example->getId(),
             ]
        );
     }

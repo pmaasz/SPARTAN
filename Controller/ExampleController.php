@@ -68,13 +68,14 @@ class ExampleController
      */
     public function updateAction(Request $request)
     {
+        $example = new Example();
         $id = $request->getGet()->get('id');
         $parameters[] = $request->getPost()->get('parameter');
         $result = $this->exampleRepository->findById($id);
 
         if ($request->isPostRequest())
         {
-            $this->exampleRepository->update($parameters, $id);
+            $this->exampleRepository->update($example);
 
             return new ResponseRedirect('index.php');
         }
@@ -91,14 +92,20 @@ class ExampleController
      */
     public function deleteAction(Request $request)
     {
-        $id = $request->getGet()->get('id');
+        $example = new Example();
+        $example->setId($request->getGet()->get('id'));
 
-        $this->exampleRepository->delete($id);
+        $this->exampleRepository->delete($example);
 
         return new ResponseRedirect('index.php');
     }
 
-
+    /**
+     * @param Request $request
+     * @param Example $example
+     *
+     * @return Response|ResponseRedirect
+     */
     private function handleForm(Request $request, Example $example)
     {
         $example = $this->exampleRepository->buildFromPost($request, $example);
