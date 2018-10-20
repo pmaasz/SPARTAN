@@ -6,6 +6,12 @@
  * Time: 20:15
  */
 
+/**
+ * The Repository consists of functions that handle our data. These functions are called by the Controller and provide
+ * the Controller with the data it needs to hand to a template. The Controller also tells uses these functions to update
+ * data in the database or to insert new data. Every Entity has an dedicated Repository.
+ */
+
 require_once __DIR__ . "/../Services/Database.php";
 
 class ExampleRepository
