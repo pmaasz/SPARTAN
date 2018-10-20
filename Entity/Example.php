@@ -16,18 +16,29 @@
 class Example
 {
     /**
+     * @var int
+     */
+    private $id;
+
+    /**
      * @var mixed
      */
     private $attribute;
 
     /**
-     * Example constructor.
-     *
-     * @param $attribute
+     * @param int $id
      */
-    public function __construct($attribute)
+    public function setId($id)
     {
-        $this->attribute = $attribute;
+        $this->id = $id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

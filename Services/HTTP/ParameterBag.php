@@ -42,6 +42,7 @@ class ParameterBag
         {
             return false;
         }
+
         return $this->elements[$key];
     }
 

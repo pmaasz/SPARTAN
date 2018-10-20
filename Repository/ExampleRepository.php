@@ -17,6 +17,22 @@ require_once __DIR__ . "/../Services/Database.php";
 class ExampleRepository
 {
     /**
+     * @param Example $example
+     *
+     * @return bool
+     */
+    public function persist(Example $example)
+    {
+        if($example->getId() !== null)
+        {
+            return $this->update($example);
+        }
+
+        return $this->insert($example);
+    }
+
+
+    /**
      * @return mixed
      */
     public function findAll()
@@ -55,19 +71,17 @@ class ExampleRepository
     }
 
     /**
-     * @param array $parameters
-     * @param int $id
+     * @param Example $example
      *
      * @return mixed
      */
-    public function update(array $parameters, $id)
+    public function update(Example $example)
     {
         return Database::getInstance()->insert("UPDATE table SET parameter = :parameter WHERE id = :id", [
-                'parameter' => $parameters['parameter'],
-                'id' => $id,
+                'parameter' => $example->getAttribute(),
+                'id' => $example->getId(),
             ]
         );
-
     }
 
     /**

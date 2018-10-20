@@ -11,7 +11,6 @@
  * new data and what data to give to channel to a Template for a user to view or manipulate.
  */
 
-
 require_once __DIR__ . '/../Services/Templating.php';
 require_once __DIR__ . '/../Repository/ExampleRepository.php';
 require_once __DIR__ . '/../Entity/Example.php';
@@ -52,7 +51,7 @@ class ExampleController
     {
         if ($request->isPostRequest())
         {
-            $example = new Example($request->getPost()->get('attribute'));
+            $example = new Example();
 
             $this->exampleRepository->insert($example);
 
@@ -97,5 +96,22 @@ class ExampleController
         $this->exampleRepository->delete($id);
 
         return new ResponseRedirect('index.php');
+    }
+
+
+    private function handleForm(Request $request, Example $example)
+    {
+        $example = $this->exampleRepository->buildFromPost($request, $example);
+        $result = $this->exampleRepository->persist($example);
+
+            if ($result)
+            {
+                return new ResponseRedirect('./index.php?controller=OverviewController&action=indexAction&sortparam=customer');
+            }
+
+        return new Response(Templating::getInstance()->render('Customer/form.php', [
+                'data' => $example
+            ])
+        );
     }
 }
