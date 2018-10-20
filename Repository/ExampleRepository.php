@@ -32,6 +32,33 @@ class ExampleRepository
     }
 
     /**
+     * @param Request $request
+     * @param Example $example
+     *
+     * @return Example
+     */
+    public function buildFromPost(Request $request, Example $example)
+    {
+        $example->setAttribute($request->getPost()->get('attribute'));
+
+        return $example;
+    }
+
+    /**
+     * @param $data
+     *
+     * @return Example
+     */
+    private function arrayToObject($data)
+    {
+        $object = new Example();
+        $object->setId($data['id']);
+        $object->setAttribute($data['attribute']);
+
+        return $object;
+    }
+
+    /**
      * @return mixed
      */
     public function findAll()
@@ -94,15 +121,5 @@ class ExampleRepository
                 'id' => $example->getId(),
             ]
        );
-    }
-
-    public function arrayToObject()
-    {
-
-    }
-
-    public function ObjectToArray()
-    {
-
     }
 }
