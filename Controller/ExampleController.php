@@ -86,7 +86,9 @@ class ExampleController
      */
     private function handleForm(Request $request, Example $example)
     {
-        if($request->isPostRequest())
+        $isValid = $this->validate($request);
+
+        if($isValid)
         {
             $example = $this->exampleRepository->buildFromPost($request, $example);
             $result = $this->exampleRepository->persist($example);
@@ -100,5 +102,25 @@ class ExampleController
         return new Response(Templating::getInstance()->render('form.php', [
             'data' => $example
         ]));
+    }
+
+    /**
+     * @param Request $request
+     * 
+     * @return bool
+     */
+    private function validate(Request $request)
+    {
+        if ($request->isPostRequest())
+        {
+            $result = $this->exampleRepository->findForValidation($request);
+
+            if (count($result))
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

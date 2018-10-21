@@ -39,7 +39,7 @@ class ExampleRepository
      */
     public function buildFromPost(Request $request, Example $example)
     {
-        $example->setAttribute($request->getPost()->get('attribute'));
+        $example->setAttribute(strip_tags($request->getPost()->get('attribute')));
 
         return $example;
     }
@@ -64,6 +64,21 @@ class ExampleRepository
     public function findAll()
     {
         $result = Database::getInstance()->query("SELECT * FROM table")[0];
+
+        return $result;
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return mixed
+     */
+    public function findForValidation(Request $request)
+    {
+        $result = Database::getInstance()->query("SELECT * FROM table WHERE ", [
+                    'id' => strip_tags($request->getGet()->get('id')),
+                    'attribute' => strip_tags($request->getPost()->get('attribute')),
+        ]);
 
         return $result;
     }
