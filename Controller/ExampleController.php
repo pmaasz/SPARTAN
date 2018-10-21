@@ -49,16 +49,9 @@ class ExampleController
      */
     public function createAction(Request $request)
     {
-        if ($request->isPostRequest())
-        {
-            $example = new Example();
+        $example = new Example();
 
-            $this->exampleRepository->insert($example);
-
-            return new ResponseRedirect('index.php');
-        }
-
-        return new Response(Templating::getInstance()->render('form.php'));
+        return $this->handleForm($request, $example);
     }
 
     /**
@@ -108,17 +101,19 @@ class ExampleController
      */
     private function handleForm(Request $request, Example $example)
     {
-        $example = $this->exampleRepository->buildFromPost($request, $example);
-        $result = $this->exampleRepository->persist($example);
+        if($request->isPostRequest())
+        {
+            $example = $this->exampleRepository->buildFromPost($request, $example);
+            $result = $this->exampleRepository->persist($example);
 
             if ($result)
             {
-                return new ResponseRedirect('./index.php?controller=OverviewController&action=indexAction&sortparam=customer');
+                return new ResponseRedirect('index.php');
             }
+        }
 
-        return new Response(Templating::getInstance()->render('Customer/form.php', [
-                'data' => $example
-            ])
-        );
+        return new Response(Templating::getInstance()->render('form.php', [
+            'data' => $example
+        ]));
     }
 }
