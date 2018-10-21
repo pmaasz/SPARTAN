@@ -61,21 +61,9 @@ class ExampleController
      */
     public function updateAction(Request $request)
     {
-        $example = new Example();
-        $id = $request->getGet()->get('id');
-        $parameters[] = $request->getPost()->get('parameter');
-        $result = $this->exampleRepository->findById($id);
+        $example = $this->exampleRepository->findById($request->getQuery()->get('id'));
 
-        if ($request->isPostRequest())
-        {
-            $this->exampleRepository->update($example);
-
-            return new ResponseRedirect('index.php');
-        }
-
-        return new Response(Templating::getInstance()->render('form.php', [
-            'result' => $result,
-        ]));
+        return $this->handleForm($request, $example);
     }
 
     /**
