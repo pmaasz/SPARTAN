@@ -19,6 +19,84 @@ class ExampleRepository
     /**
      * @param Example $example
      *
+     * @return mixed
+     */
+    public function insert(Example $example)
+    {
+        return Database::getInstance()->insert("INSERT INTO table SET parameter = :parameter", [
+                'parameter' => $example->getAttribute(),
+        ]);
+    }
+
+    /**
+     * @param Example $example
+     *
+     * @return mixed
+     */
+    public function update(Example $example)
+    {
+        return Database::getInstance()->insert("UPDATE table SET parameter = :parameter WHERE id = :id", [
+                'parameter' => $example->getAttribute(),
+                'id' => $example->getId(),
+        ]);
+    }
+
+    /**
+     * @param int $id
+     *
+     * @return mixed
+     */
+    public function delete($id)
+    {
+       return Database::getInstance()->query('DELETE FROM table WHERE id = :id', [
+                'id' => $id,
+       ]);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function findAll()
+    {
+        $result = Database::getInstance()->query("SELECT * FROM table")[0];
+        $example = $this->arrayToObject($result);
+
+        return $example;
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return mixed
+     */
+    public function findForValidation(Request $request)
+    {
+        $result = Database::getInstance()->query("SELECT * FROM table WHERE ", [
+            'id' => strip_tags($request->getGet()->get('id')),
+            'attribute' => strip_tags($request->getPost()->get('attribute')),
+        ]);
+        $example = $this->arrayToObject($result);
+
+        return $example;
+    }
+
+    /**
+     * @param int $id
+     *
+     * @return mixed
+     */
+    public function findById($id)
+    {
+        $result = Database::getInstance()->query("SELECT * FROM table WHERE id = :id", [
+            'id' => $id,
+        ])[0];
+
+        return $result;
+    }
+    
+    /**
+     * @param Example $example
+     *
      * @return bool
      */
     public function persist(Example $example)
@@ -57,83 +135,5 @@ class ExampleRepository
         $object->setAttribute($data['attribute']);
 
         return $object;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function findAll()
-    {
-        $result = Database::getInstance()->query("SELECT * FROM table")[0];
-        $example = $this->arrayToObject($result);
-
-        return $example;
-    }
-
-    /**
-     * @param Request $request
-     *
-     * @return mixed
-     */
-    public function findForValidation(Request $request)
-    {
-        $result = Database::getInstance()->query("SELECT * FROM table WHERE ", [
-                    'id' => strip_tags($request->getGet()->get('id')),
-                    'attribute' => strip_tags($request->getPost()->get('attribute')),
-        ]);
-        $example = $this->arrayToObject($result);
-
-        return $example;
-    }
-
-    /**
-     * @param int $id
-     *
-     * @return mixed
-     */
-    public function findById($id)
-    {
-        $result = Database::getInstance()->query("SELECT * FROM table WHERE id = :id", [
-                'id' => $id,
-        ])[0];
-
-        return $result;
-    }
-
-    /**
-     * @param Example $example
-     *
-     * @return mixed
-     */
-    public function insert(Example $example)
-    {
-        return Database::getInstance()->insert("INSERT INTO table SET parameter = :parameter", [
-                'parameter' => $example->getAttribute(),
-        ]);
-    }
-
-    /**
-     * @param Example $example
-     *
-     * @return mixed
-     */
-    public function update(Example $example)
-    {
-        return Database::getInstance()->insert("UPDATE table SET parameter = :parameter WHERE id = :id", [
-                'parameter' => $example->getAttribute(),
-                'id' => $example->getId(),
-        ]);
-    }
-
-    /**
-     * @param int $id
-     *
-     * @return mixed
-     */
-    public function delete($id)
-    {
-       return Database::getInstance()->query('DELETE FROM table WHERE id = :id', [
-                'id' => $id,
-       ]);
     }
 }
