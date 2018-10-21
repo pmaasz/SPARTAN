@@ -26,15 +26,22 @@ class Request
     protected $post;
 
     /**
+     * @var ParameterBag
+     */
+    protected $file;
+
+    /**
      * Request constructor.
      *
-     * @param array $queryData
+     * @param array $getData
      * @param array $postData
+     * @param array $fileData
      */
-    public function __construct(array $queryData = array(), array $postData = array())
+    public function __construct(array $getData = array(), array $postData = array(), $fileData = array())
     {
-        $this->query = new ParameterBag($queryData);
+        $this->get = new ParameterBag($getData);
         $this->post = new ParameterBag($postData);
+        $this->file = new ParameterBag($fileData);
     }
 
     /**
@@ -42,7 +49,7 @@ class Request
      */
     public function getGet()
     {
-        return $this->query;
+        return $this->get;
     }
 
     /**
@@ -51,6 +58,11 @@ class Request
     public function getPost()
     {
         return $this->post;
+    }
+
+    public function getFile()
+    {
+        return $this->file;
     }
 
     /**
