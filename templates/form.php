@@ -11,8 +11,8 @@
             </div>
 
             <div class="card-footer text-right">
-                <button type="submit" name="action" value="speichern">Save</button>
-                <a href="index.php?controller=UserController&action=indexAction">Cancel</a>
+                <button type="submit" name="action" value="speichern" class="saveButton">Save</button>
+                <a href="index.php?controller=UserController&action=indexAction" class="cancelButton">Cancel</a>
             </div>
         </form>
     </div>

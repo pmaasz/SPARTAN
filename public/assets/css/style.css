@@ -1,0 +1,15 @@
+.createButton{
+    color: blue;
+}
+
+.deleteButton, .cancelButton{
+    color: red;
+}
+
+.updateButton{
+    color: deepskyblue;
+}
+
+.saveButton{
+    color: green;
+}

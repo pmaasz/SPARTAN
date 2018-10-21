@@ -7,14 +7,14 @@
                 </div>
 
                 <div class="col-sm-3">
-                    <a href="index.php?controller=UserController&action=updateAction">Update</a>
-                    <a href="index.php?controller=UserController&action=deleteAction">Delete</a>
+                    <a href="index.php?controller=UserController&action=updateAction" class="updateButton">Update</a>
+                    <a href="index.php?controller=UserController&action=deleteAction" class="deleteButton">Delete</a>
                 </div>
             </div>
         <?php } ?>
     </div>
 
     <div class="card-footer">
-        <a href="index.php?controller=UserController&action=createAction">New Entry</a>
+        <a href="index.php?controller=UserController&action=createAction" class="createButton">New Entry</a>
     </div>
 </div>
