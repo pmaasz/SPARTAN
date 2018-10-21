@@ -61,7 +61,7 @@ class ExampleController
      */
     public function updateAction(Request $request)
     {
-        $example = $this->exampleRepository->findById($request->getGet()->get('id'));
+        $example = $this->exampleRepository->findById(strip_tags($request->getGet()->get('id')));
 
         return $this->handleForm($request, $example);
     }
@@ -73,7 +73,7 @@ class ExampleController
      */
     public function deleteAction(Request $request)
     {
-        $this->exampleRepository->delete($request->getGet()->get('id'));
+        $this->exampleRepository->delete(strip_tags($request->getGet()->get('id')));
 
         return new ResponseRedirect('index.php');
     }
