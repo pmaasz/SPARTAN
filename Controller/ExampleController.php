@@ -106,7 +106,7 @@ class ExampleController
 
     /**
      * @param Request $request
-     * 
+     *
      * @return bool
      */
     private function validate(Request $request)

@@ -52,6 +52,7 @@ class ExampleRepository
     private function arrayToObject($data)
     {
         $object = new Example();
+
         $object->setId($data['id']);
         $object->setAttribute($data['attribute']);
 
@@ -64,8 +65,9 @@ class ExampleRepository
     public function findAll()
     {
         $result = Database::getInstance()->query("SELECT * FROM table")[0];
+        $example = $this->arrayToObject($result);
 
-        return $result;
+        return $example;
     }
 
     /**
@@ -79,8 +81,9 @@ class ExampleRepository
                     'id' => strip_tags($request->getGet()->get('id')),
                     'attribute' => strip_tags($request->getPost()->get('attribute')),
         ]);
+        $example = $this->arrayToObject($result);
 
-        return $result;
+        return $example;
     }
 
     /**
@@ -92,8 +95,7 @@ class ExampleRepository
     {
         $result = Database::getInstance()->query("SELECT * FROM table WHERE id = :id", [
                 'id' => $id,
-            ]
-        )[0];
+        ])[0];
 
         return $result;
     }
@@ -107,8 +109,7 @@ class ExampleRepository
     {
         return Database::getInstance()->insert("INSERT INTO table SET parameter = :parameter", [
                 'parameter' => $example->getAttribute(),
-            ]
-        );
+        ]);
     }
 
     /**
@@ -121,8 +122,7 @@ class ExampleRepository
         return Database::getInstance()->insert("UPDATE table SET parameter = :parameter WHERE id = :id", [
                 'parameter' => $example->getAttribute(),
                 'id' => $example->getId(),
-            ]
-        );
+        ]);
     }
 
     /**
@@ -134,7 +134,6 @@ class ExampleRepository
     {
        return Database::getInstance()->query('DELETE FROM table WHERE id = :id', [
                 'id' => $id,
-            ]
-       );
+       ]);
     }
 }
