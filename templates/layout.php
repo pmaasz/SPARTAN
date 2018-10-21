@@ -12,5 +12,7 @@
 
 <?php include $contents ?>
 
+<script src="/public/assets/js/example.js"></script>
+
 </body>
 </html>
