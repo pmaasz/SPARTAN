@@ -18,6 +18,11 @@ class Templating
     use Singleton;
 
     /**
+     * @var mixed
+     */
+    private $layout = __DIR__ . '/../templates/layout.php';
+
+    /**
      * @param $template
      * @param array $parameters
      *
@@ -26,14 +31,16 @@ class Templating
     public function render($template, array $parameters = array())
     {
         ob_start();
-
         extract($parameters);
 
-        include __DIR__ . '/../templates/' . $template;
+        $content = __DIR__ . '/../templates/' . $template;
+
+        include $this->layout;
 
         $content = ob_get_clean();
 
         return $content;
+
     }
 
     /**
