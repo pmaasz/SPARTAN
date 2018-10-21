@@ -111,14 +111,14 @@ class ExampleRepository
     }
 
     /**
-     * @param Example $example
+     * @param int $id
      *
      * @return mixed
      */
-    public function delete(Example $example)
+    public function delete($id)
     {
        return Database::getInstance()->query('DELETE FROM table WHERE id = :id', [
-                'id' => $example->getId(),
+                'id' => $id,
             ]
        );
     }
