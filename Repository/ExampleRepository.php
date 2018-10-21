@@ -93,7 +93,7 @@ class ExampleRepository
 
         return $result;
     }
-    
+
     /**
      * @param Example $example
      *
