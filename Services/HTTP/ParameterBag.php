@@ -24,6 +24,9 @@ class ParameterBag
     /**
      * ParameterBag constructor.
      *
+     * When a new object of the ParameterBag is made we initiate it with a global variable which fills our $elements
+     * array.
+     *
      * @param array $elements
      */
     public function __construct(array $elements)
