@@ -55,6 +55,9 @@ class ParameterBag
     }
 
     /**
+     * This function makes sure our key exists inside of our array and is used before we return the value of the given
+     *key inside the get function of this class.
+     *
      * @param string $key
      *
      * @return bool
