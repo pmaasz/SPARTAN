@@ -56,7 +56,8 @@ class ParameterBag
 
     /**
      * This function makes sure our key exists inside of our array and is used before we return the value of the given
-     *key inside the get function of this class.
+     * key inside the get function of this class. We use the isset function implemented in PHP(see PHP Manual for
+     * explanation),
      *
      * @param string $key
      *
@@ -68,6 +69,8 @@ class ParameterBag
     }
 
     /**
+     * This function tests if our global array variable is empty.
+     *
      * @return bool
      */
     public function isEmpty()
