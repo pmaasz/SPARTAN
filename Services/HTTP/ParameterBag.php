@@ -24,7 +24,7 @@ class ParameterBag
     /**
      * ParameterBag constructor.
      *
-     * When a new object of the ParameterBag is made we initiate it with a global variable which fills our $elements
+     * When a new object of the ParameterBag is made we initiate it with a global array variable which fills our $elements
      * array.
      *
      * @param array $elements
@@ -35,6 +35,9 @@ class ParameterBag
     }
 
     /**
+     * The $key variable is a string an a placeholder for the key inside of the global array variable. Before we return
+     * the value to the given key we ask if that key value pair exists.
+     *
      * @param string $key
      *
      * @return mixed
