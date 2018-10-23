@@ -16,16 +16,22 @@ require_once __DIR__ . '/ParameterBag.php';
 class Request
 {
     /**
+     * This variable holds an instance of the object ParameterBag that is instantiated with the global variable $_GET.
+     *
      * @var ParameterBag
      */
     protected $get;
 
     /**
+     * This variable holds an instance of the object ParameterBag that is instantiated with the global variable $_POST.
+     *
      * @var ParameterBag
      */
     protected $post;
 
     /**
+     * This variable holds an instance of the object ParameterBag that is instantiated with the global variable $_FILES.
+     *
      * @var ParameterBag
      */
     protected $file;
