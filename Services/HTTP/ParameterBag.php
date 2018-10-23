@@ -15,6 +15,8 @@
 class ParameterBag
 {
     /**
+     * This array holds the elements of our $_POST, $_GET or $_Files array.
+     *
      * @var array
      */
     private $elements;

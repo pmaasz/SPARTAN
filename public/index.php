@@ -11,7 +11,6 @@
  * routed to the correct classes and functions. Also the response given by the server to the client is send from here.
  */
 
-
 /**
  * The Session is a global variable (array). This means you can access this array everywhere in your code via the
  * $_SESSION call. Those variables are also called superglobal variables. The session is also using a
