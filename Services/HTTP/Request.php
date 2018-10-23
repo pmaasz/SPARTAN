@@ -39,6 +39,9 @@ class Request
     /**
      * Request constructor.
      *
+     * When a new Request object is instantiated, three ParameterBags are build to holt the parameters of the globals
+     * $_GET, $_POST and $_FILES. Those globals are given in the index.php, our entry point to the application.
+     *
      * @param array $getData
      * @param array $postData
      * @param array $fileData
@@ -51,6 +54,8 @@ class Request
     }
 
     /**
+     * This function return the elements of the $_GET variable.
+     *
      * @return ParameterBag
      */
     public function getGet()
@@ -59,6 +64,8 @@ class Request
     }
 
     /**
+     * This function return the elements of the $_POST variable.
+     *
      * @return ParameterBag
      */
     public function getPost()
@@ -66,12 +73,19 @@ class Request
         return $this->post;
     }
 
+    /**
+     * This function return the elements of the $_FILES variable.
+     *
+     * @return ParameterBag
+     */
     public function getFile()
     {
         return $this->file;
     }
 
     /**
+     * This function evaluates if the request sent holds a $_POST array with values.
+     *
      * @return bool
      */
     public function isPostRequest()
