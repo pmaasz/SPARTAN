@@ -23,11 +23,9 @@ class ExampleRepository
      */
     public function insert(Example $example)
     {
-        $result = Database::getInstance()->insert("INSERT INTO example SET attribute = :attribute", [
+       return Database::getInstance()->insert("INSERT INTO example SET attribute = :attribute", [
                 'attribute' => $example->getAttribute(),
         ]);
-
-        var_dump($result);exit;
     }
 
     /**
