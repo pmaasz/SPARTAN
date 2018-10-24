@@ -3,7 +3,7 @@
         <?php foreach($result as $data){?>
             <div class="row">
                 <div class="col-sm-9">
-                    <?= $data->getAttribute(); ?>
+                    <?= $data['attribute']; ?>
                 </div>
 
                 <div class="col-sm-3">
