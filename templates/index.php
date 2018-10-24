@@ -7,8 +7,8 @@
                 </div>
 
                 <div class="col-sm-3">
-                    <a href="index.php?controller=ExampleController&action=updateAction" class="updateButton">Update</a>
-                    <a href="index.php?controller=ExampleController&action=deleteAction" class="deleteButton">Delete</a>
+                    <a href="index.php?controller=ExampleController&action=updateAction&id=<?= $data['id']; ?>" class="updateButton">Update</a>
+                    <a href="index.php?controller=ExampleController&action=deleteAction&id=<?= $data['id']; ?>" class="deleteButton">Delete</a>
                 </div>
             </div>
         <?php } ?>
