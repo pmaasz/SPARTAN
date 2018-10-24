@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<?php include $contents ?>
+<?php include $content ?>
 
 <script src="/public/assets/js/example.js"></script>
 

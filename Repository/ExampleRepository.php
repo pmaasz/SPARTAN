@@ -54,14 +54,20 @@ class ExampleRepository
     }
 
     /**
-     * @return mixed
+     * @return array
      */
     public function findAll()
     {
-        $result = Database::getInstance()->query("SELECT * FROM table")[0];
-        $example = $this->arrayToObject($result);
+        $result = Database::getInstance()->query("SELECT * FROM table");
+        $examples = [];
 
-        return $example;
+        foreach($result as $data)
+        {
+            $example = $this->arrayToObject($data);
+            $customers[] = $example;
+        }
+
+        return $examples;
     }
 
     /**
@@ -71,7 +77,7 @@ class ExampleRepository
      */
     public function findForValidation(Request $request)
     {
-        $result = Database::getInstance()->query("SELECT * FROM table WHERE ", [
+        $result = Database::getInstance()->query("SELECT * FROM table WHERE id = :id and attribute = :attribute", [
             'id' => strip_tags($request->getGet()->get('id')),
             'attribute' => strip_tags($request->getPost()->get('attribute')),
         ]);
