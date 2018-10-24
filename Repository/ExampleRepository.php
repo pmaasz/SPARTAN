@@ -23,9 +23,11 @@ class ExampleRepository
      */
     public function insert(Example $example)
     {
-        return Database::getInstance()->insert("INSERT INTO table SET attribute = :attribute", [
+        $result = Database::getInstance()->insert("INSERT INTO example SET attribute = :attribute", [
                 'attribute' => $example->getAttribute(),
         ]);
+
+        var_dump($result);exit;
     }
 
     /**
@@ -35,7 +37,7 @@ class ExampleRepository
      */
     public function update(Example $example)
     {
-        return Database::getInstance()->insert("UPDATE table SET attribute = :attribute WHERE id = :id", [
+        return Database::getInstance()->insert("UPDATE example SET attribute = :attribute WHERE id = :id", [
                 'attribute' => $example->getAttribute(),
                 'id' => $example->getId(),
         ]);
@@ -48,7 +50,7 @@ class ExampleRepository
      */
     public function delete($id)
     {
-       return Database::getInstance()->query('DELETE FROM table WHERE id = :id', [
+       return Database::getInstance()->query('DELETE FROM example WHERE id = :id', [
                 'id' => $id,
        ]);
     }
@@ -58,7 +60,7 @@ class ExampleRepository
      */
     public function findAll()
     {
-        $result = Database::getInstance()->query("SELECT * FROM table");
+        $result = Database::getInstance()->query("SELECT * FROM example");
 
         return $result;
     }
@@ -70,7 +72,7 @@ class ExampleRepository
      */
     public function findForValidation(Request $request)
     {
-        $result = Database::getInstance()->query("SELECT * FROM table WHERE id = :id and attribute = :attribute", [
+        $result = Database::getInstance()->query("SELECT * FROM example WHERE id = :id and attribute = :attribute", [
             'id' => strip_tags($request->getGet()->get('id')),
             'attribute' => strip_tags($request->getPost()->get('attribute')),
         ]);
@@ -86,7 +88,7 @@ class ExampleRepository
      */
     public function findById($id)
     {
-        $result = Database::getInstance()->query("SELECT * FROM table WHERE id = :id", [
+        $result = Database::getInstance()->query("SELECT * FROM example WHERE id = :id", [
             'id' => $id,
         ])[0];
 
