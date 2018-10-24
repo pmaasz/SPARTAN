@@ -37,7 +37,7 @@ if(isset($_GET['action']))
     $actionName = $_GET['action'];
 }
 
-require_once __DIR__.'/Controller/'.$controllerName.'.php';
+require_once __DIR__.'/../Controller/'.$controllerName.'.php';
 
 $request = new Request($_GET, $_POST, $_FILES);
 
