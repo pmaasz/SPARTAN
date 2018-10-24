@@ -23,8 +23,8 @@ class ExampleRepository
      */
     public function insert(Example $example)
     {
-        return Database::getInstance()->insert("INSERT INTO table SET parameter = :parameter", [
-                'parameter' => $example->getAttribute(),
+        return Database::getInstance()->insert("INSERT INTO table SET attribute = :attribute", [
+                'attribute' => $example->getAttribute(),
         ]);
     }
 
@@ -35,8 +35,8 @@ class ExampleRepository
      */
     public function update(Example $example)
     {
-        return Database::getInstance()->insert("UPDATE table SET parameter = :parameter WHERE id = :id", [
-                'parameter' => $example->getAttribute(),
+        return Database::getInstance()->insert("UPDATE table SET attribute = :attribute WHERE id = :id", [
+                'attribute' => $example->getAttribute(),
                 'id' => $example->getId(),
         ]);
     }
