@@ -89,8 +89,9 @@ class ExampleRepository
         $result = Database::getInstance()->query("SELECT * FROM example WHERE id = :id", [
             'id' => $id,
         ])[0];
+        $example = $this->arrayToObject($result);
 
-        return $result;
+        return $example;
     }
 
     /**
