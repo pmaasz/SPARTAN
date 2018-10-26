@@ -1,4 +1,4 @@
-<form name="userFrom" action="index.php?controller=ExampleController&action=createAction" method="POST">
+<form name="userFrom" action="index.php?controller=ExampleController&action=<?php if($data->getId()){?>"updateAction"<?php} else {?> "createAction"<?php}?> method="POST">
     <label for="attribute" class="form-control-label col-6">Attribute: </label>
     <input type="text" name="attribute" title="attribute" value="<?= $data->getAttribute();?>">
 
