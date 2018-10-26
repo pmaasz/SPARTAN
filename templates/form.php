@@ -5,7 +5,7 @@
                 <div class="form-group row">
                     <label for="attribute" class="form-control-label col-6">Attribute</label>
                     <div class="col-6">
-                        <input type="text" name="attribute" title="attribute" value="">
+                        <input type="text" name="attribute" title="attribute" value="<?php if($data){$data->getAttribute();}?>">
                     </div>
                 </div>
             </div>
