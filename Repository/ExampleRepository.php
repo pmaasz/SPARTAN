@@ -23,8 +23,8 @@ class ExampleRepository
      */
     public function insert(Example $example)
     {
-        return Database::getInstance()->insert("INSERT INTO table SET parameter = :parameter", [
-                'parameter' => $example->getAttribute(),
+       return Database::getInstance()->insert("INSERT INTO example SET attribute = :attribute", [
+                'attribute' => $example->getAttribute(),
         ]);
     }
 
@@ -35,8 +35,8 @@ class ExampleRepository
      */
     public function update(Example $example)
     {
-        return Database::getInstance()->insert("UPDATE table SET parameter = :parameter WHERE id = :id", [
-                'parameter' => $example->getAttribute(),
+        return Database::getInstance()->insert("UPDATE example SET attribute = :attribute WHERE id = :id", [
+                'attribute' => $example->getAttribute(),
                 'id' => $example->getId(),
         ]);
     }
@@ -48,20 +48,19 @@ class ExampleRepository
      */
     public function delete($id)
     {
-       return Database::getInstance()->query('DELETE FROM table WHERE id = :id', [
+       return Database::getInstance()->query('DELETE FROM example WHERE id = :id', [
                 'id' => $id,
        ]);
     }
 
     /**
-     * @return mixed
+     * @return array
      */
     public function findAll()
     {
-        $result = Database::getInstance()->query("SELECT * FROM table")[0];
-        $example = $this->arrayToObject($result);
+        $result = Database::getInstance()->query("SELECT * FROM example");
 
-        return $example;
+        return $result;
     }
 
     /**
@@ -71,7 +70,7 @@ class ExampleRepository
      */
     public function findForValidation(Request $request)
     {
-        $result = Database::getInstance()->query("SELECT * FROM table WHERE ", [
+        $result = Database::getInstance()->query("SELECT * FROM example WHERE id = :id and attribute = :attribute", [
             'id' => strip_tags($request->getGet()->get('id')),
             'attribute' => strip_tags($request->getPost()->get('attribute')),
         ]);
@@ -87,11 +86,12 @@ class ExampleRepository
      */
     public function findById($id)
     {
-        $result = Database::getInstance()->query("SELECT * FROM table WHERE id = :id", [
+        $result = Database::getInstance()->query("SELECT * FROM example WHERE id = :id", [
             'id' => $id,
         ])[0];
+        $example = $this->arrayToObject($result);
 
-        return $result;
+        return $example;
     }
 
     /**

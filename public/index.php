@@ -11,6 +11,12 @@
  * routed to the correct classes and functions. Also the response given by the server to the client is send from here.
  */
 
+/**
+ * The Session is a global variable (array). This means you can access this array everywhere in your code via the
+ * $_SESSION call. Those variables are also called superglobal variables. The session is also using a
+ * Singleton-Pattern|Trait. Calling the function session_start() creates a new Session object or uses an already
+ * existing one. The Session is time limited an 'dissolves' after a set period of time.
+ */
 session_start();
 
 require_once __DIR__ . '/../Services/HTTP/Request.php';
@@ -31,9 +37,9 @@ if(isset($_GET['action']))
     $actionName = $_GET['action'];
 }
 
-require_once __DIR__.'/Controller/'.$controllerName.'.php';
+require_once __DIR__.'/../Controller/' . $controllerName . '.php';
 
-$request = new Request($_GET, $_POST);
+$request = new Request($_GET, $_POST, $_FILES);
 
 /** @var mixed $controller */
 $controller = new $controllerName();

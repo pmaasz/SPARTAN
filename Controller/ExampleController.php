@@ -86,9 +86,9 @@ class ExampleController
      */
     private function handleForm(Request $request, Example $example)
     {
-        $isValid = $this->validate($request);
+        //$isValid = $this->validate($request);
 
-        if($isValid)
+        if($request->isPostRequest())
         {
             $example = $this->exampleRepository->buildFromPost($request, $example);
             $result = $this->exampleRepository->persist($example);

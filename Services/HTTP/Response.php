@@ -16,12 +16,16 @@ require_once __DIR__ . '/ResponseInterface.php';
 class Response implements ResponseInterface
 {
     /**
+     *
+     *
      * @var string
      */
     private $content;
 
     /**
      * Response constructor.
+     *
+     *
      *
      * @param $content
      */
@@ -31,7 +35,7 @@ class Response implements ResponseInterface
     }
 
     /**
-     * echoes content as string to browser which is interpreted
+     * This function echoes content as string to browser which is interpreted by the browser.
      */
     public function send()
     {
