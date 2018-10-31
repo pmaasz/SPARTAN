@@ -91,8 +91,6 @@ class ExampleRepository
         ])[0];
         $example = $this->arrayToObject($result);
 
-        var_dump($example);
-
         return $example;
     }
 
