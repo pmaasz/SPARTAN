@@ -1,0 +1,13 @@
+{
+    "name": "pmaasz/spartan",
+    "description": "Basic PHP Framework",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Philip Maaß",
+            "email": "PhilipMaasz@aol.com"
+        }
+    ],
+    "require": {}
+}
