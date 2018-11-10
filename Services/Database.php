@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Philipnormal
+ * User: Philip Maaß
  * Date: 17.10.18
  * Time: 20:15
  */
@@ -20,7 +20,7 @@ class Database
     const DB_DRIVER = 'mysql';
     const DB_HOST = 'localhost';
     const DB_USER = 'root';
-    const DB_PASSWORD = '';
+    const DB_PASSWORD = 'gue55me';
     const DB_NAME = 'example';
 
     /**
