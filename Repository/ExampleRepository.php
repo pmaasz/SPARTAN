@@ -59,8 +59,15 @@ class ExampleRepository
     public function findAll()
     {
         $result = Database::getInstance()->query("SELECT * FROM example");
+        $results = [];
 
-        return $result;
+        foreach($result as $data)
+        {
+            $object = $this->arrayToObject($data);
+            $results[] = $object;
+        }
+
+        return $results;
     }
 
     /**
