@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Philipnormal
+ * User: Philip Maaß
  * Date: 17.10.18
  * Time: 20:15
  */
@@ -59,8 +59,15 @@ class ExampleRepository
     public function findAll()
     {
         $result = Database::getInstance()->query("SELECT * FROM example");
+        $results = [];
 
-        return $result;
+        foreach($result as $data)
+        {
+            $object = $this->arrayToObject($data);
+            $results[] = $object;
+        }
+
+        return $results;
     }
 
     /**
