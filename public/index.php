@@ -23,6 +23,9 @@ require_once __DIR__ . '/../Services/HTTP/Request.php';
 require_once __DIR__ . '/../Services/HTTP/Response.php';
 require_once __DIR__ . '/../Services/HTTP/ResponseRedirect.php';
 require_once __DIR__ . '/../Services/HTTP/ResponseInterface.php';
+require_once __DIR__ . '/../Services/ConfigService.php';
+
+ConfigService::getInstance()->load(__DIR__ . '/../config/config.json');
 
 $controllerName = "ExampleController";
 $actionName = "indexAction";
@@ -37,16 +40,12 @@ if(isset($_GET['action']))
     $actionName = $_GET['action'];
 }
 
-require_once __DIR__.'/../Controller/' . $controllerName . '.php';
+require_once __DIR__ . '/../Controller/' . $controllerName . '.php';
 
 $request = new Request($_GET, $_POST, $_FILES);
-
 /** @var mixed $controller */
 $controller = new $controllerName();
-
-/**
- * @var ResponseInterface $response
- */
+/** @var ResponseInterface $response */
 $response = $controller->$actionName($request);
 
 $response->send();

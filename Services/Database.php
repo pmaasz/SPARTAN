@@ -13,15 +13,12 @@
 
 require_once 'Singleton.php';
 
+/**
+ * Class Database
+ */
 class Database
 {
     use Singleton;
-
-    const DB_DRIVER = 'mysql';
-    const DB_HOST = 'localhost';
-    const DB_USER = 'root';
-    const DB_PASSWORD = 'gue55me';
-    const DB_NAME = 'example';
 
     /**
      * @var PDO
@@ -33,7 +30,8 @@ class Database
      */
     private function connect()
     {
-        $this->connection = new PDO($this->getDSN(), self::DB_USER, self::DB_PASSWORD);
+        $config = ConfigService::getInstance()->get('database');
+        $this->connection = new PDO($this->getDSN($config), $config['user'], $config['password']);
     }
 
     /**
@@ -83,10 +81,12 @@ class Database
     }
 
     /**
+     * @param $config
+     *
      * @return string
      */
-    private function getDSN()
+    private function getDSN($config)
     {
-        return sprintf("%s:host=%s;dbname=%s", self::DB_DRIVER, self::DB_HOST, self::DB_NAME);
+        return sprintf("%s:host=%s;dbname=%s", $config['driver'], $config['host'], $config['dbname']);
     }
 }

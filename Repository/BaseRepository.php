@@ -4,7 +4,7 @@
  * Author: Philip Maaß
  * Date: 28.11.18
  * Time: 19:25
- * License
+ * License: MIT
  */
 
 
@@ -40,10 +40,10 @@ abstract class BaseRepository
 
         foreach($parameters as $key => $value)
         {
-            $properties[$key] = $key . ' = :' .$key;
+            $properties[$key] = $key . ' = :' . $key;
         }
 
-        $query = "SELECT * FROM ".$this->getTableName()." WHERE ";
+        $query = "SELECT * FROM " . $this->getTableName() . " WHERE ";
         $query .= \join(', ', $properties);
         $data = $this->database->query($query, $parameters);
         $data2 = $data[0];
@@ -63,10 +63,10 @@ abstract class BaseRepository
 
         foreach($parameters as $key => $value)
         {
-            $properties[$key] = $key . ' = :' .$key;
+            $properties[$key] = $key . ' = :' . $key;
         }
 
-        $query = "SELECT * FROM ".$this->getTableName()." WHERE ";
+        $query = "SELECT * FROM " . $this->getTableName() . " WHERE ";
         $query .= \join(', ', $properties);
         $array = $this->database->query($query, $parameters);
         $entities = [];
@@ -85,7 +85,7 @@ abstract class BaseRepository
      */
     public function findAll()
     {
-        $query = "SELECT * FROM ".$this->getTableName();
+        $query = "SELECT * FROM " . $this->getTableName();
         $array = $this->database->query($query);
         $entities = [];
 
