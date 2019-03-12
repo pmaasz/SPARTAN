@@ -15,6 +15,9 @@ require_once __DIR__ . '/../Services/Templating.php';
 require_once __DIR__ . '/../Repository/ExampleRepository.php';
 require_once __DIR__ . '/../Entity/Example.php';
 
+/**
+ * Class ExampleController
+ */
 class ExampleController
 {
     /**
