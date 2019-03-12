@@ -21,7 +21,7 @@ class Example
     private $id;
 
     /**
-     * @var mixed
+     * @var string
      */
     private $attribute;
 
@@ -50,7 +50,7 @@ class Example
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getAttribute()
     {
