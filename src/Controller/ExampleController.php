@@ -11,6 +11,8 @@
  * new data and what data to give to channel to a Template for a user to view or manipulate.
  */
 
+namespace App\Controller;
+
 require_once __DIR__ . '/../Services/Templating.php';
 require_once __DIR__ . '/../Repository/ExampleRepository.php';
 require_once __DIR__ . '/../Entity/Example.php';

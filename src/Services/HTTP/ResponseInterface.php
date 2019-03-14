@@ -14,6 +14,13 @@
  * send exists which is used by two different objects.
  */
 
+namespace App\Services\HTTP;
+
+/**
+ * Interface ResponseInterface
+ *
+ * @package App\Services\HTTP
+ */
 interface ResponseInterface
 {
     /**

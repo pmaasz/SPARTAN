@@ -6,6 +6,8 @@
  * Time: 20:15
  */
 
+namespace App\Services\HTTP;
+
 /**
  * Class ResponseRedirect
  *
@@ -13,7 +15,6 @@
  * Instead of loading the same page again we can redirect to a new page. Example would be the saving of a form and
  * redirecting to the page where the saved data is shown.
  */
-
 class ResponseRedirect implements ResponseInterface
 {
     /**

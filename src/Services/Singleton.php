@@ -6,6 +6,8 @@
  * Time: 20:15
  */
 
+namespace App\Services;
+
 /**
  * Trait Singleton
  *
@@ -13,7 +15,6 @@
  * does is preventing us from building thousands of instances from our objects when we only need one. You can find it
  * in different classes mainly service classes.
  */
-
 trait Singleton
 {
     protected static $instance;

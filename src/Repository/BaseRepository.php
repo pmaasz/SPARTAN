@@ -7,6 +7,7 @@
  * License: MIT
  */
 
+namespace App\Repository;
 
 /**
  * Class BaseRepository

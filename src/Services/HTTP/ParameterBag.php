@@ -6,12 +6,13 @@
  * Time: 20:15
  */
 
+namespace App\Services\HTTP;
+
 /**
  * Class ParameterBag
  *
  * The ParameterBag holds all of our $_GET or $_POST request parameters in form of an array.
  */
-
 class ParameterBag
 {
     /**

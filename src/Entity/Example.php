@@ -6,13 +6,15 @@
  * Time: 20:15
  */
 
+namespace App\Entity;
+
+
 /**
  * Class Example
  *
  * This object is an entity which reflects a data-model in our database. It consists of attributes, getter- and setter-
  * functions.
  */
-
 class Example
 {
     /**

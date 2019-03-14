@@ -6,6 +6,8 @@
  * Time: 20:15
  */
 
+namespace App\Repository;
+
 /**
  * The Repository consists of functions that handle our data. These functions are called by the Controller and provide
  * the Controller with the data it needs to hand to a template. The Controller also tells uses these functions to update

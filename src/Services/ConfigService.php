@@ -7,6 +7,8 @@
  * License: MIT
  */
 
+namespace App\Services;
+
 require_once 'Singleton.php';
 
 /**
