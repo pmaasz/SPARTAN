@@ -20,6 +20,10 @@
  */
 session_start();
 
+require_once 'Autoloader.php';
+
+Autoloader::register("App", "src");
+
 require_once __DIR__ . '/../Services/HTTP/Request.php';
 require_once __DIR__ . '/../Services/HTTP/Response.php';
 require_once __DIR__ . '/../Services/HTTP/ResponseRedirect.php';
