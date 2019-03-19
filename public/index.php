@@ -20,17 +20,15 @@
  */
 session_start();
 
-require_once 'Autoloader.php';
+require_once __DIR__ . '/Autoloader.php';
 
 Autoloader::register("App", "src");
 
-require_once __DIR__ . '/../Services/HTTP/Request.php';
-require_once __DIR__ . '/../Services/HTTP/Response.php';
-require_once __DIR__ . '/../Services/HTTP/ResponseRedirect.php';
-require_once __DIR__ . '/../Services/HTTP/ResponseInterface.php';
-require_once __DIR__ . '/../Services/ConfigService.php';
+use App\Services\HTTP\Request;
+use App\Services\HTTP\ResponseInterface;
+use App\Services\ConfigService;
 
-ConfigService::getInstance()->load(__DIR__ . '/../config/config.json');
+ConfigService::getInstance();//->load(__DIR__ . '/../config/config.json');
 
 $controllerName = "ExampleController";
 $actionName = "indexAction";

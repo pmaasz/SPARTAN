@@ -13,7 +13,7 @@ namespace App\Services\HTTP;
  * and $_POST into our ParameterBag by creating new instances of that class for each parameter.
  */
 
-require_once __DIR__ . '/ParameterBag.php';
+use App\Services\HTTP\ParameterBag;
 
 /**
  * Class Request

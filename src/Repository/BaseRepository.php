@@ -9,6 +9,8 @@
 
 namespace App\Repository;
 
+use App\Services\Database;
+
 /**
  * Class BaseRepository
  *

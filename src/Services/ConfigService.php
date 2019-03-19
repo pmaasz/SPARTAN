@@ -9,8 +9,6 @@
 
 namespace App\Services;
 
-require_once 'Singleton.php';
-
 /**
  * Class ConfigService
  */

@@ -14,8 +14,15 @@ namespace App\Repository;
  * data in the database or to insert new data. Every Entity has an dedicated Repository.
  */
 
-require_once __DIR__ . "/../Services/Database.php";
+use App\Services\Database;
+use App\Entity\Example;
+use App\Services\HTTP\Request;
 
+/**
+ * Class ExampleRepository
+ *
+ * @package App\Repository
+ */
 class ExampleRepository
 {
     /**

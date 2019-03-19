@@ -13,8 +13,6 @@ namespace App\Services;
  * and generate the view for the user.
  */
 
-require_once 'Singleton.php';
-
 /**
  * Class Templating
  *

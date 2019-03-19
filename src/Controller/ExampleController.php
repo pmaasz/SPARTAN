@@ -13,9 +13,12 @@
 
 namespace App\Controller;
 
-require_once __DIR__ . '/../Services/Templating.php';
-require_once __DIR__ . '/../Repository/ExampleRepository.php';
-require_once __DIR__ . '/../Entity/Example.php';
+use App\Services\Templating;
+use App\Repository\ExampleRepository;
+use App\Entity\Example;
+use App\Services\HTTP\Request;
+use App\Services\HTTP\Response;
+use App\Services\HTTP\ResponseRedirect;
 
 /**
  * Class ExampleController

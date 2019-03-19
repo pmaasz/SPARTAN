@@ -13,8 +13,6 @@
 
 namespace App\Services;
 
-require_once 'Singleton.php';
-
 /**
  * Class Database
  */
@@ -23,7 +21,7 @@ class Database
     use Singleton;
 
     /**
-     * @var PDO
+     * @var \PDO
      */
     private $connection;
 
@@ -33,7 +31,7 @@ class Database
     private function connect()
     {
         $config = ConfigService::getInstance()->get('database');
-        $this->connection = new PDO($this->getDSN($config), $config['user'], $config['password']);
+        $this->connection = new \PDO($this->getDSN($config), $config['user'], $config['password']);
     }
 
     /**
@@ -71,7 +69,7 @@ class Database
 
         $statement->execute();
 
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $statement->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     /**

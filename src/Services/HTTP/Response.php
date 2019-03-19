@@ -13,7 +13,7 @@ namespace App\Services\HTTP;
  * the browser for it to interpret into the page the user can see.
  */
 
-require_once __DIR__ . '/ResponseInterface.php';
+use App\Services\HTTP\ResponseInterface;
 
 /**
  * Class Response
