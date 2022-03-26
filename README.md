@@ -46,3 +46,4 @@ Fill out the missing parameters for user and password.
 ### 5. what's missing?
 + Entity Manager
 + Manage database via entity manager
++ Dependency Injection
