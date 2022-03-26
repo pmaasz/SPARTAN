@@ -65,4 +65,25 @@ class ConfigService
 
         return null;
     }
+
+    /**
+     * Get all configuration values.
+     *
+     * @return array
+     */
+    public function getAll()
+    {
+        return $this->configuration;
+    }
+
+    /**
+     * Set a configuration value by it's name.
+     *
+     * @param string $name
+     * @param string $value
+     */
+    public function set($name, $value)
+    {
+        $this->configuration[$name] = $value;
+    }
 }

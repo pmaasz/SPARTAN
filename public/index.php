@@ -28,7 +28,7 @@ use App\Services\HTTP\Request;
 use App\Services\HTTP\ResponseInterface;
 use App\Services\ConfigService;
 
-ConfigService::getInstance();//->load(__DIR__ . '/../config/config.json');
+ConfigService::getInstance()->load(__DIR__ . '/../config/config.json.dist');
 
 $controllerName = "ExampleController";
 $actionName = "indexAction";
@@ -43,7 +43,7 @@ if(isset($_GET['action']))
     $actionName = $_GET['action'];
 }
 
-require_once __DIR__ . '/../Controller/' . $controllerName . '.php';
+require_once __DIR__ . '../src/Controller/' . $controllerName . '.php';
 
 $request = new Request($_GET, $_POST, $_FILES);
 /** @var mixed $controller */
