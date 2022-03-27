@@ -31,4 +31,12 @@ class BaseEntity
     {
         return $this->id;
     }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return (string) $this->id;
+    }
 }
