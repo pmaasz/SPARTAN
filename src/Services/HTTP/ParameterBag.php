@@ -36,7 +36,7 @@ class ParameterBag
     }
 
     /**
-     * The $key variable is a string an a placeholder for the key inside of the global array variable. Before we return
+     * The $key variable is a string and a placeholder for the key inside the global array variable. Before we return
      * the value to the given key we ask if that key value pair exists.
      *
      * @param string $key
@@ -56,7 +56,7 @@ class ParameterBag
     }
 
     /**
-     * This function makes sure our key exists inside of our array and is used before we return the value of the given
+     * This function makes sure our key exists inside our array and is used before we return the value of the given
      * key inside the get function of this class. We use the isset function implemented in PHP(see PHP Manual for
      * explanation),
      *
