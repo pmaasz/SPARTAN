@@ -23,16 +23,12 @@ use App\Services\HTTP\ResponseInterface;
 class Response implements ResponseInterface
 {
     /**
-     *
-     *
      * @var string
      */
     private $content;
 
     /**
      * Response constructor.
-     *
-     *
      *
      * @param $content
      */
@@ -63,5 +59,29 @@ class Response implements ResponseInterface
     public function getContent()
     {
         return $this->content;
+    }
+
+    /**
+     * @param $header
+     */
+    public function addHeader($header)
+    {
+        header($header);
+    }
+
+    /**
+     * @param $statusCode
+     */
+    public function setStatusCode($statusCode)
+    {
+        http_response_code($statusCode);
+    }
+
+    /**
+     * @param $statusMessage
+     */
+    public function setStatusMessage($statusMessage)
+    {
+        $this->addHeader("HTTP/1.1 $statusMessage");
     }
 }
