@@ -8,39 +8,20 @@
 
 namespace App\Entity;
 
+use Entity\BaseEntity;
+
 /**
  * Class Example
  *
  * This object is an entity which reflects a data-model in our database. It consists of attributes, getter- and setter-
  * functions.
  */
-class Example
+class Example extends BaseEntity
 {
-    /**
-     * @var int
-     */
-    private $id;
-
     /**
      * @var string
      */
     private $attribute;
-
-    /**
-     * @param int $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    /**
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * @param $attribute
