@@ -33,13 +33,11 @@ ConfigService::getInstance()->load(__DIR__ . '/../config/config.json.dist');
 $controllerName = "ExampleController";
 $actionName = "indexAction";
 
-if(isset($_GET['controller']))
-{
+if(isset($_GET['controller'])) {
     $controllerName = $_GET['controller'];
 }
 
-if(isset($_GET['action']))
-{
+if(isset($_GET['action'])) {
     $actionName = $_GET['action'];
 }
 

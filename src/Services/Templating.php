@@ -49,7 +49,7 @@ class Templating
     }
 
     /**
-     *bad code because of exit function.
+     * bad code because of exit function.
      * we can replicate the same functionality by redirecting to our index.php in public.
      * There we use our default Controller and default action.
      */
