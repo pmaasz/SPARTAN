@@ -50,3 +50,4 @@ Fill out the missing parameters for user and password.
 + Kernel (Routing), currently in index.php
 + improve Template Engine (partials, layouts)
 + Template Engine interfacing Twig
++ Caching
