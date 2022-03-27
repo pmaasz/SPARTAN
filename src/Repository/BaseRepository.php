@@ -41,8 +41,7 @@ abstract class BaseRepository
     {
         $properties = [];
 
-        foreach($parameters as $key => $value)
-        {
+        foreach($parameters as $key => $value) {
             $properties[$key] = $key . ' = :' . $key;
         }
 
@@ -50,9 +49,8 @@ abstract class BaseRepository
         $query .= \join(', ', $properties);
         $data = $this->database->query($query, $parameters);
         $data2 = $data[0];
-        $entity = $this->arrayToObject($data2);
 
-        return $entity;
+        return $this->arrayToObject($data2);;
     }
 
     /**
@@ -64,8 +62,7 @@ abstract class BaseRepository
     {
         $properties = [];
 
-        foreach($parameters as $key => $value)
-        {
+        foreach($parameters as $key => $value) {
             $properties[$key] = $key . ' = :' . $key;
         }
 
@@ -74,8 +71,7 @@ abstract class BaseRepository
         $array = $this->database->query($query, $parameters);
         $entities = [];
 
-        foreach($array as $result)
-        {
+        foreach($array as $result) {
             $entity = $this->arrayToObject($result);
             $entities[] = $entity;
         }
